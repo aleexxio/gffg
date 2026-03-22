@@ -4,7 +4,7 @@ import { createPublicKey, verify } from "crypto";
 const app = express();
 
 // IMPORTANT: capture raw body BEFORE json parsing
-app.use(express.raw({ type: "application/json" }));
+app.use(express.raw({ type: "*/*" }));
 
 const PRC_PUBLIC_KEY_B64 = "MCowBQYDK2VwAyEAjSICb9pp0kHizGQtdG8ySWsDChfGqi+gyFCttigBNOA=";
 const publicKey = createPublicKey({ key: Buffer.from(PRC_PUBLIC_KEY_B64, "base64"), format: "der", type: "spki" });
